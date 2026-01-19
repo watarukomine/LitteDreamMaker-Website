@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | LittleDreamMaker - 作品集</title>
+    <meta name="description" content="LittleDreamMakerの撮影作品集。ニューボーン、お宮参り、七五三など、想い出の瞬間をカテゴリ別にご覧いただけます。">
+    <!-- CSS reference will be handled by Vite if we link it in main.ts or include it here -->
+    <link rel="stylesheet" href="./src/style.css">
+</head>
+
+<body>
+    <header class="glass">
+        <div class="container">
+            <div class="logo font-serif"><a href="/">LittleDreamMaker</a></div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/#about">About</a></li>
+                    <li><a href="/#services">Services</a></li>
+                    <li><a href="/gallery.html" class="active">Gallery</a></li>
+                    <li><a href="/#pricing">Plan</a></li>
+                    <li><a href="/#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section gallery-page-header">
+            <div class="container">
+                <h1 class="section-title text-center reveal">Gallery</h1>
+                <p class="text-center reveal delay-1 section-intro">
+                    紡いできた10年間の記憶。お子様の成長やご家族の愛を、カテゴリー別にお楽しみください。
+                </p>
+
+                <div class="gallery-filter-container reveal delay-2">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="newborn">NewBorn</button>
+                    <button class="filter-btn" data-filter="miyamairi">お宮参り</button>
+                    <button class="filter-btn" data-filter="753">七五三</button>
+                    <button class="filter-btn" data-filter="entrance_graduation">入学・卒業</button>
+                    <button class="filter-btn" data-filter="birthday">BirthDay</button>
+                    <button class="filter-btn" data-filter="seijin">成人式</button>
+                    <button class="filter-btn" data-filter="family">Family</button>
+                    <button class="filter-btn" data-filter="pet">Pet</button>
+                    <button class="filter-btn" data-filter="other">Other</button>
+                </div>
+
+                <div id="gallery-grid" class="gallery-grid">
+                    <!-- JSで動的に追加されます -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="section">
+        <div class="container text-center">
+            <p class="font-serif">LittleDreamMaker</p>
+            <p>&copy; 2015-2026 LittleDreamMaker All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
