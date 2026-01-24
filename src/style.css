@@ -216,8 +216,8 @@ header .nav-links a:hover {
 }
 
 .hero-logo-mark {
-  width: 180px;
-  /* 少しサイズを調整 */
+  width: 140px;
+  /* サイズを縮小してスペースを確保 */
   height: auto;
   mix-blend-mode: multiply;
   /* 白背景を透過させて背景に馴染ませる */
@@ -246,15 +246,15 @@ header .nav-links a:hover {
 }
 
 .hero-content h1 {
-  font-size: clamp(3rem, 8vw, 5rem);
+  font-size: clamp(2.5rem, 6vw, 4rem);
   line-height: 1.2;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   color: var(--color-text);
 }
 
 .hero-content p {
-  font-size: 1.2rem;
-  margin: 0 auto 3rem;
+  font-size: 1.1rem;
+  margin: 0 auto 2rem;
   color: var(--color-text-muted);
   max-width: 600px;
 }
