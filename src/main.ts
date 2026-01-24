@@ -59,6 +59,21 @@ const filterButtons = document.querySelectorAll('.filter-btn');
 // Vite's feature to import all images from categories
 const imageModules = import.meta.glob('./assets/images/gallery/**/*.{jpg,jpeg,png,JPG,PNG}', { eager: true });
 
+/**
+ * Gets random elements from an array.
+ * @template T
+ * @param {T[]} arr The source array.
+ * @param {number} count The number of elements to return.
+ * @returns {T[]} A new array with random elements.
+ */
+function getRandomElements<T>(arr: T[], count: number): T[] {
+  // Create a shuffled copy of the array
+  const shuffled = [...arr].sort(() => 0.5 - Math.random());
+  // Return the first 'count' elements, ensuring not to exceed the array length
+  return shuffled.slice(0, Math.min(count, shuffled.length));
+}
+
+
 function initGallerySystem() {
   const imagesByCategory: { [key: string]: string[] } = {};
   const allImages: { url: string; category: string }[] = [];
@@ -90,22 +105,24 @@ function initGallerySystem() {
   // 2. Main Page Carousel Logic
   if (momentsCarousel) {
     momentsCarousel.innerHTML = '';
-    // Select about 10 random or first images for preview
-    const previewImages = allImages.slice(0, 10);
+    // Select 10 random images for the preview carousel
+    const previewImages = getRandomElements(allImages, 10);
 
-    // Duplicate for infinite scroll effect
-    const displayImages = [...previewImages, ...previewImages];
+    // Duplicate for infinite scroll effect, only if there are images to show
+    if (previewImages.length > 0) {
+        const displayImages = [...previewImages, ...previewImages];
 
-    displayImages.forEach(img => {
-      const item = document.createElement('a');
-      item.href = '/gallery.html';
-      item.className = 'carousel-item';
-      item.innerHTML = `<img src="${img.url}" alt="Moment" loading="lazy">`;
-      momentsCarousel.appendChild(item);
-    });
+        displayImages.forEach(img => {
+          const item = document.createElement('a');
+          item.href = '/gallery.html';
+          item.className = 'carousel-item';
+          item.innerHTML = `<img src="${img.url}" alt="Moment" loading="lazy">`;
+          momentsCarousel.appendChild(item);
+        });
 
-    // Update animation duration based on item count
-    momentsCarousel.style.animationDuration = `${displayImages.length * 4}s`;
+        // Update animation duration based on item count to maintain speed
+        momentsCarousel.style.animationDuration = `${displayImages.length * 4}s`;
+    }
   }
 
   // Re-observe for reveal animation
@@ -145,4 +162,3 @@ filterButtons.forEach(button => {
 window.addEventListener('DOMContentLoaded', () => {
   initGallerySystem();
 });
-
