@@ -254,7 +254,7 @@ header .nav-links a:hover {
 
 .hero-content p {
   font-size: 1.2rem;
-  margin-bottom: 3rem;
+  margin: 0 auto 3rem;
   color: var(--color-text-muted);
   max-width: 600px;
 }
