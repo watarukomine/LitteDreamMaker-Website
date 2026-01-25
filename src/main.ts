@@ -114,7 +114,7 @@ function initGallerySystem() {
 
       displayImages.forEach(img => {
         const item = document.createElement('a');
-        item.href = '/gallery.html';
+        item.href = 'gallery.html';
         item.className = 'carousel-item';
         item.innerHTML = `<img src="${img.url}" alt="Moment" loading="lazy">`;
         momentsCarousel.appendChild(item);
