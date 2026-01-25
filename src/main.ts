@@ -110,18 +110,18 @@ function initGallerySystem() {
 
     // Duplicate for infinite scroll effect, only if there are images to show
     if (previewImages.length > 0) {
-        const displayImages = [...previewImages, ...previewImages];
+      const displayImages = [...previewImages, ...previewImages];
 
-        displayImages.forEach(img => {
-          const item = document.createElement('a');
-          item.href = '/gallery.html';
-          item.className = 'carousel-item';
-          item.innerHTML = `<img src="${img.url}" alt="Moment" loading="lazy">`;
-          momentsCarousel.appendChild(item);
-        });
+      displayImages.forEach(img => {
+        const item = document.createElement('a');
+        item.href = '/gallery.html';
+        item.className = 'carousel-item';
+        item.innerHTML = `<img src="${img.url}" alt="Moment" loading="lazy">`;
+        momentsCarousel.appendChild(item);
+      });
 
-        // Update animation duration based on item count to maintain speed
-        momentsCarousel.style.animationDuration = `${displayImages.length * 4}s`;
+      // Update animation duration based on item count to maintain speed
+      momentsCarousel.style.animationDuration = `${displayImages.length * 4}s`;
     }
   }
 
@@ -158,7 +158,79 @@ filterButtons.forEach(button => {
   });
 });
 
+// About Image Randomization
+const aboutImageModules = import.meta.glob('./assets/images/biography/profile-random-*.jpg', { eager: true });
+const aboutImages = Object.values(aboutImageModules).map((mod: any) => mod.default);
+
+function initAboutImage() {
+  const aboutImgElement = document.getElementById('about-profile-img') as HTMLImageElement;
+  if (aboutImgElement && aboutImages.length > 0) {
+    const randomImage = aboutImages[Math.floor(Math.random() * aboutImages.length)];
+    aboutImgElement.src = randomImage;
+  }
+}
+
+// 753 Service Image Randomization (REMOVED - Replaced by Slideshow)
+
+// Service Card Slideshow Logic
+const newbornSlideshowModules = import.meta.glob('./assets/images/services/newborn-slideshow/*.jpg', { eager: true });
+const service753SlideshowModules = import.meta.glob('./assets/images/services/753-random/*.jpg', { eager: true });
+const familySlideshowModules = import.meta.glob('./assets/images/services/family-slideshow/*.jpg', { eager: true });
+const familySlideshowImages = Object.values(familySlideshowModules).map((mod: any) => mod.default);
+
+// Album Slideshow Imports
+const chirimenSlideshowModules = import.meta.glob('./assets/images/products/chirimen-album/*.jpg', { eager: true });
+const chirimenImages = Object.values(chirimenSlideshowModules).map((mod: any) => mod.default);
+
+const lifesizeSlideshowModules = import.meta.glob('./assets/images/products/life-size-album/*.{jpg,png}', { eager: true });
+const lifesizeImages = Object.values(lifesizeSlideshowModules).map((mod: any) => mod.default);
+
+const newbornImages = Object.values(newbornSlideshowModules).map((mod: any) => mod.default);
+const service753Images = Object.values(service753SlideshowModules).map((mod: any) => mod.default);
+
+function initServiceSlideshow(containerId: string, images: string[], interval: number = 3000) {
+  const container = document.getElementById(containerId);
+  if (!container || images.length === 0) return;
+
+  container.innerHTML = ''; // Clear existing content
+
+  // Create image elements
+  images.forEach((src, index) => {
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = "Service Image";
+    img.className = `service-card-img ${index === 0 ? 'active' : ''}`;
+    container.appendChild(img);
+  });
+
+  // Start slideshow only if multiple images exist
+  if (images.length > 1) {
+    let currentIndex = 0;
+    setInterval(() => {
+      const imgs = container.querySelectorAll('.service-card-img');
+      imgs[currentIndex].classList.remove('active');
+      currentIndex = (currentIndex + 1) % imgs.length;
+      imgs[currentIndex].classList.add('active');
+    }, interval);
+  } else {
+    // For single image, ensure it's visible
+    const img = container.querySelector('.service-card-img');
+    if (img) img.classList.add('active');
+  }
+}
+
 // Initialize
 window.addEventListener('DOMContentLoaded', () => {
   initGallerySystem();
+  initAboutImage();
+  // initService753Image(); // Removed
+
+  // Initialize Slideshows
+  initServiceSlideshow('service-newborn-slideshow', newbornImages);
+  initServiceSlideshow('service-753-slideshow', service753Images);
+  initServiceSlideshow('service-family-slideshow', familySlideshowImages);
+
+  // Album Slideshow (5 seconds interval)
+  initServiceSlideshow('product-chirimen-slideshow', chirimenImages, 5000);
+  initServiceSlideshow('product-lifesize-slideshow', lifesizeImages, 5000);
 });

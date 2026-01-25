@@ -8,6 +8,24 @@
   <title>LittleDreamMaker | プロフォトグラファー - ニューボーンフォト・ロケーションフォト</title>
   <meta name="description"
     content="11年目の実績。助産師提携で安心のニューボーンフォトから七五三、ファミリーフォトまで。LittleDreamMakerは、かけがえのない瞬間をドラマチックに残すプロフォトグラファーです。" />
+  <meta name="keywords" content="ニューボーンフォト,七五三,出張撮影,神奈川,静岡,東京,LittleDreamMaker,女性カメラマン">
+  <meta name="author" content="LittleDreamMaker">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://littledreammaker.com/">
+  <meta property="og:title" content="LittleDreamMaker | プロフォトグラファー - ニューボーンフォト・ロケーションフォト">
+  <meta property="og:description"
+    content="11年目の実績。助産師提携で安心のニューボーンフォトから七五三、ファミリーフォトまで。LittleDreamMakerは、かけがえのない瞬間をドラマチックに残すプロフォトグラファーです。">
+  <meta property="og:image" content="https://littledreammaker.com/assets/images/hero-no-logo.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://littledreammaker.com/">
+  <meta property="twitter:title" content="LittleDreamMaker | プロフォトグラファー - ニューボーンフォト・ロケーションフォト">
+  <meta property="twitter:description"
+    content="11年目の実績。助産師提携で安心のニューボーンフォトから七五三、ファミリーフォトまで。LittleDreamMakerは、かけがえのない瞬間をドラマチックに残すプロフォトグラファーです。">
+  <meta property="twitter:image" content="https://littledreammaker.com/assets/images/hero-no-logo.png">
 </head>
 
 <body>
@@ -42,8 +60,7 @@
       <div class="container">
         <div class="about-grid">
           <div class="about-image-wrapper reveal">
-            <img src="/src/assets/images/about.jpg" alt="Photographer Ami Komine" class="img-frame">
-            <div class="award-badge font-serif">National Top 10<br>Artist</div>
+            <img id="about-profile-img" src="./assets/images/about.jpg" alt="Photographer Ami Komine" class="img-frame">
           </div>
           <div class="about-text reveal delay-1">
             <h2 class="section-title">Photographer<br>Ami Komine</h2>
@@ -79,22 +96,22 @@
         <h2 class="section-title text-center reveal">Services</h2>
         <div class="service-cards">
           <div class="card reveal">
-            <div class="card-image-wrapper">
-              <img src="/src/assets/images/gallery/newborn/IMG_2527.JPG" alt="Newborn Photo" class="service-card-img">
+            <div id="service-newborn-slideshow" class="card-image-wrapper">
+              <!-- JSで動的に画像が追加されます -->
             </div>
             <h3>Newborn Photo</h3>
             <p>助産師提携。生後間もない赤ちゃんの神秘的な姿を安全に撮影します。</p>
           </div>
           <div class="card reveal delay-1">
-            <div class="card-image-wrapper">
-              <img src="/src/assets/images/gallery/753/IMG_9475.JPG" alt="Kids & 七五三" class="service-card-img">
+            <div id="service-753-slideshow" class="card-image-wrapper">
+              <!-- JSで動的に画像が追加されます -->
             </div>
             <h3>Kids & 七五三</h3>
             <p>七五三、お宮参りなど。お子様の健やかな成長をロケーションフォトで。</p>
           </div>
           <div class="card reveal delay-2">
-            <div class="card-image-wrapper">
-              <img src="/src/assets/images/gallery/family/IMG_1363.JPG" alt="Family & Wedding" class="service-card-img">
+            <div id="service-family-slideshow" class="card-image-wrapper">
+              <!-- JSで動的に画像が追加されます -->
             </div>
             <h3>Family & Wedding</h3>
             <p>家族の絆、人生の節目。いつまでも色褪せない思い出を残します。</p>
@@ -194,8 +211,8 @@
         <h2 class="section-title reveal">Photo Albums</h2>
         <div class="service-cards">
           <div class="card reveal">
-            <div class="card-image-wrapper">
-              <img src="/src/assets/images/gallery1.jpg" alt="ちりめんアルバム" class="service-card-img">
+            <div id="product-chirimen-slideshow" class="card-image-wrapper">
+              <!-- JSで動的に画像が追加されます -->
             </div>
             <h3>ちりめんアルバム</h3>
             <p>七五三や成人式など、晴れ着のイベントに最適。お客様の着物柄で表紙を飾る、特別な一冊です。</p>
@@ -203,13 +220,14 @@
             <p>3面: ¥30,800（税込）</p>
           </div>
           <div class="card reveal delay-1">
-            <div class="card-image-wrapper">
-              <img src="/src/assets/images/life-size-album.jpg" alt="等身大アルバム" class="service-card-img">
+            <div id="product-lifesize-slideshow" class="card-image-wrapper">
+              <!-- JSで動的に画像が追加されます -->
             </div>
             <h3>等身大アルバム</h3>
             <p>30cmスクエアの特別なアルバム。0〜6ヶ月の赤ちゃんが、見開き60cmのページに等身大で収まります。</p>
             <p>2ページまたは4ページから選べ、ご家族の写真も一緒にレイアウトできます。</p>
-            <p class="price">価格はお問い合わせください</p>
+            <p>2ページ: ¥26,400（税込）</p>
+            <p>4ページ: ¥30,800（税込）</p>
           </div>
         </div>
       </div>
