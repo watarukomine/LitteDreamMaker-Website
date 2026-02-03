@@ -188,7 +188,7 @@ const lifesizeImages = Object.values(lifesizeSlideshowModules).map((mod: any) =>
 const newbornImages = Object.values(newbornSlideshowModules).map((mod: any) => mod.default);
 const service753Images = Object.values(service753SlideshowModules).map((mod: any) => mod.default);
 
-function initServiceSlideshow(containerId: string, images: string[], interval: number = 3000) {
+function initServiceSlideshow(containerId: string, images: string[], altText: string, interval: number = 3000) {
   const container = document.getElementById(containerId);
   if (!container || images.length === 0) return;
 
@@ -198,7 +198,7 @@ function initServiceSlideshow(containerId: string, images: string[], interval: n
   images.forEach((src, index) => {
     const img = document.createElement('img');
     img.src = src;
-    img.alt = "Service Image";
+    img.alt = altText;
     img.className = `service-card-img ${index === 0 ? 'active' : ''}`;
     container.appendChild(img);
   });
@@ -226,11 +226,11 @@ window.addEventListener('DOMContentLoaded', () => {
   // initService753Image(); // Removed
 
   // Initialize Slideshows
-  initServiceSlideshow('service-newborn-slideshow', newbornImages);
-  initServiceSlideshow('service-753-slideshow', service753Images);
-  initServiceSlideshow('service-family-slideshow', familySlideshowImages);
+  initServiceSlideshow('service-newborn-slideshow', newbornImages, 'Newborn Photography');
+  initServiceSlideshow('service-753-slideshow', service753Images, '753 Photography');
+  initServiceSlideshow('service-family-slideshow', familySlideshowImages, 'Family & Wedding Photography');
 
   // Album Slideshow (5 seconds interval)
-  initServiceSlideshow('product-chirimen-slideshow', chirimenImages, 5000);
-  initServiceSlideshow('product-lifesize-slideshow', lifesizeImages, 5000);
+  initServiceSlideshow('product-chirimen-slideshow', chirimenImages, 'Chirimen Album', 5000);
+  initServiceSlideshow('product-lifesize-slideshow', lifesizeImages, 'Life-size Album', 5000);
 });
