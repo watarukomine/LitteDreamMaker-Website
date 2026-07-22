@@ -15,15 +15,10 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 revealElements.forEach(el => revealObserver.observe(el));
 
-// Header Background Change on Scroll
+// Shrink header padding on scroll (glass style is applied in the HTML)
 const header = document.querySelector('header');
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
-    header?.classList.add('glass');
-    header?.style.setProperty('padding', '1rem 0');
-  } else {
-    header?.style.setProperty('padding', '1.5rem 0');
-  }
+  header?.style.setProperty('padding', window.scrollY > 50 ? '1rem 0' : '1.5rem 0');
 });
 
 // Smooth Scroll for Navigation
