@@ -153,15 +153,14 @@ filterButtons.forEach(button => {
   });
 });
 
-// About Image Randomization
+// About Profile Image
 const aboutImageModules = import.meta.glob('./assets/images/biography/profile-random-*.jpg', { eager: true });
-const aboutImages = Object.values(aboutImageModules).map((mod: any) => mod.default);
+const aboutImage = (Object.values(aboutImageModules)[0] as any)?.default;
 
 function initAboutImage() {
   const aboutImgElement = document.getElementById('about-profile-img') as HTMLImageElement;
-  if (aboutImgElement && aboutImages.length > 0) {
-    const randomImage = aboutImages[Math.floor(Math.random() * aboutImages.length)];
-    aboutImgElement.src = randomImage;
+  if (aboutImgElement && aboutImage) {
+    aboutImgElement.src = aboutImage;
   }
 }
 
