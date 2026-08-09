@@ -15,15 +15,10 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 revealElements.forEach(el => revealObserver.observe(el));
 
-// Header Background Change on Scroll
+// Shrink header padding on scroll (glass style is applied in the HTML)
 const header = document.querySelector('header');
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
-    header?.classList.add('glass');
-    header?.style.setProperty('padding', '1rem 0');
-  } else {
-    header?.style.setProperty('padding', '1.5rem 0');
-  }
+  header?.style.setProperty('padding', window.scrollY > 50 ? '1rem 0' : '1.5rem 0');
 });
 
 // Smooth Scroll for Navigation
@@ -158,15 +153,14 @@ filterButtons.forEach(button => {
   });
 });
 
-// About Image Randomization
+// About Profile Image
 const aboutImageModules = import.meta.glob('./assets/images/biography/profile-random-*.jpg', { eager: true });
-const aboutImages = Object.values(aboutImageModules).map((mod: any) => mod.default);
+const aboutImage = (Object.values(aboutImageModules)[0] as any)?.default;
 
 function initAboutImage() {
   const aboutImgElement = document.getElementById('about-profile-img') as HTMLImageElement;
-  if (aboutImgElement && aboutImages.length > 0) {
-    const randomImage = aboutImages[Math.floor(Math.random() * aboutImages.length)];
-    aboutImgElement.src = randomImage;
+  if (aboutImgElement && aboutImage) {
+    aboutImgElement.src = aboutImage;
   }
 }
 

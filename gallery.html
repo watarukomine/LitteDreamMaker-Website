@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery | LittleDreamMaker - 作品集</title>
     <meta name="description" content="LittleDreamMakerの撮影作品集。ニューボーン、お宮参り、七五三など、想い出の瞬間をカテゴリ別にご覧いただけます。">
@@ -21,25 +23,40 @@
     <meta property="twitter:title" content="Gallery | LittleDreamMaker - 作品集">
     <meta property="twitter:description" content="LittleDreamMakerの撮影作品集。ニューボーン、お宮参り、七五三など、想い出の瞬間をカテゴリ別にご覧いただけます。">
     <meta property="twitter:image" content="https://little-dream-maker.com/assets/images/ogp-logo.jpg">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ImageGallery",
+      "name": "Gallery | LittleDreamMaker - 作品集",
+      "url": "https://little-dream-maker.com/gallery.html",
+      "description": "LittleDreamMakerの撮影作品集。ニューボーン、お宮参り、七五三など、想い出の瞬間をカテゴリ別にご覧いただけます。",
+      "publisher": {
+        "@type": "PhotographyService",
+        "name": "LittleDreamMaker",
+        "@id": "https://little-dream-maker.com/",
+        "url": "https://little-dream-maker.com/"
+      }
+    }
+    </script>
+
     <!-- CSS reference will be handled by Vite if we link it in main.ts or include it here -->
     <link rel="stylesheet" href="./src/style.css">
 </head>
 
 <body>
-    <header class="glass">
-        <div class="container">
-            <div class="logo font-serif"><a href="/">LittleDreamMaker</a></div>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html#about">About</a></li>
-                    <li><a href="index.html#services">Services</a></li>
-                    <li><a href="gallery.html" class="active">Gallery</a></li>
-                    <li><a href="index.html#pricing">Plan</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+    <header id="header" class="glass">
+        <nav class="container">
+            <div class="logo font-serif"><a href="index.html">LittleDreamMaker</a></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+                <li><a href="index.html#pricing">Plan</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
